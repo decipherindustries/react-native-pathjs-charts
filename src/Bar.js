@@ -130,6 +130,9 @@ export default class BarChart extends Component {
       let colorVariationVal = numDataGroups > 1 ? numDataGroups : 3
       let color = this.color(i % colorVariationVal)
       let stroke = Colors.darkenColor(color)
+      if(!this.props.showStroke) {
+        stroke = color;
+      }
       return (
                 <G key={'lines' + i}>
                     <Path  d={ c.line.path.print() } stroke={stroke} fill={color}/>
